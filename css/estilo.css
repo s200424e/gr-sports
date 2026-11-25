@@ -276,7 +276,7 @@ html:not(.js) .dividir .palavra > span, .sem-movimento .dividir .palavra > span 
   transform-origin: 50% 0%; will-change: translate, scale, rotate;
 }
 .quadro-pincel { position: absolute; right: -14%; bottom: -10%; width: 85%; opacity: .5; pointer-events: none; }
-.quadro-pincel svg { filter: url(#pincel); transform: rotate(-8deg); }
+.quadro-pincel svg { transform: rotate(-8deg); } /* sem filtro SVG: o quadro é ampliado ao rolar e o filtro era redesenhado a cada quadro (travava ~8s) */
 .quadro-topo { position: relative; display: grid; gap: 10px; }
 .dias { display: grid; grid-template-columns: repeat(7, 1fr); gap: 6px; }
 .dia {
