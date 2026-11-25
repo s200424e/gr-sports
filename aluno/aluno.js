@@ -486,6 +486,33 @@
     else copiar(txt + ' ' + url).then(function () { avisar('Convite copiado. Cole no WhatsApp do seu amigo.'); });
   });
 
+  /* ---------- Salvar na tela inicial ---------- */
+  var cartaoInst = $('#instalar'), pedidoInst = null;
+  var instalado = window.matchMedia('(display-mode: standalone)').matches || navigator.standalone === true;
+  var ios = /iphone|ipad|ipod/i.test(navigator.userAgent) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+  function fechouHaPouco() {
+    var t = 0; try { t = +localStorage.getItem('gr-instalar-fechado') || 0; } catch (e) {}
+    return Date.now() - t < 14 * 864e5; // volta a oferecer depois de 14 dias
+  }
+  function mostrarInstalar() { if (!instalado && !fechouHaPouco()) cartaoInst.hidden = false; }
+  if ('serviceWorker' in navigator && window.isSecureContext) navigator.serviceWorker.register('sw.js').catch(function () {});
+  window.addEventListener('beforeinstallprompt', function (e) { e.preventDefault(); pedidoInst = e; mostrarInstalar(); });
+  window.addEventListener('appinstalled', function () { cartaoInst.hidden = true; avisar('Pronto! A GR está na sua tela inicial.'); });
+  if (ios) {
+    cartaoInst.classList.add('ios'); $('#instalarBtn').hidden = true;
+    $('#instalarTxt').textContent = 'No navegador, toque em Compartilhar (o quadrado com a seta) e depois em "Adicionar à Tela de Início".';
+    mostrarInstalar();
+  }
+  $('#instalarBtn').addEventListener('click', function () {
+    if (!pedidoInst) return;
+    pedidoInst.prompt();
+    pedidoInst.userChoice.then(function (r) { if (r.outcome === 'accepted') cartaoInst.hidden = true; pedidoInst = null; });
+  });
+  $('#instalarFechar').addEventListener('click', function () {
+    cartaoInst.hidden = true;
+    try { localStorage.setItem('gr-instalar-fechado', String(Date.now())); } catch (e) {}
+  });
+
   /* ---------- Início ---------- */
   function tudo() { desenharHoje(); desenharMural(); desenharMensalidade(); opcoesReposicao(); dataPerdida(); atualizarPrevia(); }
   desenharCombinados();

@@ -11,10 +11,17 @@
 <meta property="og:description" content="Treino de hoje, avisos, Pix da mensalidade e reposição.">
 <meta property="og:image" content="../img/story-ter-qui-b.webp">
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Ccircle cx='32' cy='32' r='30' fill='%23FFB608'/%3E%3Ccircle cx='32' cy='32' r='21' fill='none' stroke='%23000' stroke-width='5'/%3E%3Ctext x='32' y='38' font-family='Arial Black,Arial' font-weight='900' font-size='17' text-anchor='middle'%3EGR%3C/text%3E%3C/svg%3E">
+<link rel="icon" type="image/png" sizes="192x192" href="icones/icone-192.png">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="apple-touch-icon" href="icones/apple-touch-icon.png">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="GR Sports">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Six+Caps&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="aluno.css?v=5">
+<link rel="stylesheet" href="aluno.css?v=7">
 </head>
 <body>
 
@@ -60,6 +67,14 @@
     <div class="meu-treino" id="meuTreino" hidden></div>
     <ul class="hoje-lista" id="hojeLista"></ul>
     <button class="btn btn-contorno-claro btn-pequeno" id="btnMinhaTurma"><svg><use href="#i-lapis"/></svg><span>Escolher minha turma</span></button>
+  </section>
+
+  <!-- Salvar na tela inicial (aparece só onde dá para instalar) -->
+  <section class="instalar" id="instalar" aria-label="Salvar na tela inicial" hidden>
+    <img src="icones/icone-192.png" alt="" width="52" height="52">
+    <div class="instalar-txt"><b>Salve a GR na tela inicial</b><span id="instalarTxt">Abre direto, como um app.</span></div>
+    <button class="btn btn-preto btn-pequeno" id="instalarBtn" type="button">Salvar</button>
+    <button class="instalar-fechar" id="instalarFechar" type="button" aria-label="Agora não">✕</button>
   </section>
 
   <p class="demo" id="demo" hidden>Modo demonstração: estes avisos são exemplos. Quando a GR ligar a planilha, entram os avisos de verdade.</p>
@@ -151,7 +166,7 @@
 <div class="aviso-flutuante" id="avisoFlutuante" role="status" aria-live="polite"></div>
 
 <script src="../js/dados.js"></script>
-<script src="dados-aluno.js?v=5"></script>
-<script src="aluno.js?v=5"></script>
+<script src="dados-aluno.js?v=7"></script>
+<script src="aluno.js?v=7"></script>
 </body>
 </html>

@@ -1,0 +1,16 @@
+{
+  "name": "GR Sports · Área do aluno",
+  "short_name": "GR Sports",
+  "description": "Treino de hoje, avisos, Pix da mensalidade e reposição.",
+  "lang": "pt-BR",
+  "start_url": "./?origem=app",
+  "scope": "./",
+  "display": "standalone",
+  "background_color": "#FFB608",
+  "theme_color": "#0C0C0D",
+  "icons": [
+    { "src": "icones/icone-192.png", "sizes": "192x192", "type": "image/png", "purpose": "any" },
+    { "src": "icones/icone-512.png", "sizes": "512x512", "type": "image/png", "purpose": "any" },
+    { "src": "icones/icone-maskable-512.png", "sizes": "512x512", "type": "image/png", "purpose": "maskable" }
+  ]
+}

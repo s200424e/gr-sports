@@ -14,7 +14,7 @@
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Six+Caps&family=Poppins:ital,wght@0,400;0,500;0,600;0,700;0,800;1,700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="css/estilo.css">
+<link rel="stylesheet" href="css/estilo.css?v=2">
 </head>
 <body>
 
@@ -73,8 +73,15 @@
     <a href="#arena">Arena</a>
     <a href="#local">Como chegar</a>
   </nav>
+  <a class="sou-aluno" id="souAluno" href="aluno/">Sou aluno</a>
   <button class="btn btn-preto btn-pequeno magnetico" data-abrir="experimental">Aula experimental</button>
 </header>
+
+<!-- Aparece só para quem já salvou a turma na área do aluno -->
+<a class="faixa-aluno" id="faixaAluno" href="aluno/" hidden>
+  <span class="faixa-aluno-txt" id="faixaAlunoTxt"></span>
+  <span class="faixa-aluno-ir">Avisos <svg><use href="#i-seta"/></svg></span>
+</a>
 
 <main id="inicio">
 
@@ -387,5 +394,6 @@
 <script src="https://unpkg.com/lenis@1.1.13/dist/lenis.min.js"></script>
 <script src="js/dados.js"></script>
 <script src="js/app.js"></script>
+<script src="js/aluno-atalho.js?v=2"></script>
 </body>
 </html>
